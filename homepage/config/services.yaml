@@ -1,0 +1,109 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/services/
+
+- Network:
+    - OPNsense:
+        href: https://192.168.1.1
+        description: Firewall & Router
+        icon: opnsense.png
+        ping: https://192.168.1.1
+        widget:
+          type: opnsense
+          url: https://192.168.1.1
+          username: PQYi2WySGz7HuPE+P5WkYUidUFF1zDORZMafNGHarnk1A+s01wvmio8u1tl7Eyq05cofljBpV506TWb4
+          password: VKV91szSaEx/JUCT5Z/7BFnDQSDCJFvShTgvaOTLotFcXjr7epKx2FWMf7FUkxWiTwNByFZLJi89qKuW
+    - UniFi:
+        href: https://10.0.10.100:11443
+        description: WiFi & Switch
+        icon: unifi.png
+        ping: https://10.0.10.100
+
+- Infrastructure:
+    - Proxmox:
+        href: https://10.0.40.101:8006
+        description: Hypervisor
+        icon: proxmox.png
+        ping: https://10.0.40.101:8006
+        widget:
+          type: proxmox
+          url: https://10.0.40.101:8006
+          username: root@pam!homepage
+          password: e76aca3d-e5f7-4446-b1a0-dfc8a36476a9
+          node: pve
+          fields:
+            - vms
+            - cpu
+            - mem
+
+    - Synology:
+        href: http://10.0.40.100:5000
+        description: NAS Storage
+        icon: synology.png
+        ping: http://10.0.40.100:5000
+        widget:
+          type: diskstation
+          url: http://10.0.40.100:5000
+          username: homepage
+          password: Homelab2026NAS
+          volume: volume_1
+          fields:
+            - uptime
+            - volume_used
+            - volume_total
+            - volume_usage_percent
+    - APC UPS:
+        href: http://10.0.40.100:8082
+        description: Back-UPS BX1500M
+        icon: apc.png
+        ping: http://10.0.40.102:8082
+        widget:
+          type: customapi
+          url: http://10.0.40.102:8082/api/v1/devices/ups
+          refreshInterval: 30000
+          method: GET
+          mappings:
+            - field: "battery.charge"
+              label: Battery
+              format: percent
+            - field: "ups.load"
+              label: Load
+              format: percent
+            - field: "ups.status"
+              label: Status
+              format: text
+
+- Containers:
+    - Homepage:
+        href: https://home.bernzhomelab.com
+        description: This Dashboard
+        icon: homepage.png
+        ping: http://10.0.40.102:3000
+    - n8n:
+        href: https://n8n.bernzhomelab.com
+        description: Automation
+        icon: n8n.png
+        ping: http://10.0.40.102:5678
+    - Vaultwarden:
+        href: https://vault.bernzhomelab.com
+        description: Password Manager
+        icon: vaultwarden.png
+        ping: https://vault.bernzhomelab.com
+    - Uptime Kuma:
+        href: https://status.bernzhomelab.com
+        description: Service Monitoring
+        icon: uptime-kuma.png
+        ping: http://10.0.40.102:3002
+        widget:
+          type: uptimekuma
+          url: http://10.0.40.102:3002
+          slug: bernz-homelab
+
+- AI:
+  - Open WebUI:
+      href: https://ai.bernzhomelab.com
+      description: Local AI - Ollama
+      icon: ollama.png
+      ping: http://10.0.40.102:3001
+
+

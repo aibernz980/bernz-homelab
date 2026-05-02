@@ -1,0 +1,13 @@
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    volumes:
+      - ./data:/data
+    ports:
+      - "8080:80"
+    environment:
+      DOMAIN: "https://vault.bernzhomelab.com"
+      SIGNUPS_ALLOWED: "false"
+      ADMIN_TOKEN: "$$argon2id$$v=19$$m=65540,t=3,p=4$$j5VHmZILLwdf7OJR7Uh+7CAXclAoNZ9I6hS8KVks+Rc$$p2VPQz375IkT9AgdSJjYOQLlfADzpEgOx10Gz43ZDpM"

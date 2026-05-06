@@ -98,7 +98,7 @@
           type: uptimekuma
           url: http://10.0.40.102:3002
           slug: bernz-homelab
-     - Wiki.js:
+    - Wiki.js:
         href: https://wiki.bernzhomelab.com
         description: Homelab Documentation
         icon: wikijs.png

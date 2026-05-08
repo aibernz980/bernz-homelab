@@ -12,7 +12,7 @@ services:
       - N8N_OAUTH_CALLBACK_BASE_URL=https://n8n.bernzhomelab.com
       - WEBHOOK_URL=https://n8n.bernzhomelab.com
       - GENERIC_TIMEZONE=America/New_York
-      - N8N_ENCRYPTION_KEY=homelab2026secret
+      - N8N_ENCRYPTION_KEY=7ec86cc70dac7474a65eb3812061e095e3bcb042133f8bcd1cdbef7d158ba602
       - N8N_SECURE_COOKIE=false
     volumes:
       - n8n_data:/home/node/.n8n

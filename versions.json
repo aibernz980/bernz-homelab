@@ -1,9 +1,9 @@
 {
-  "homepage": "v1.12.3",
-  "n8n": "2.19.2",
+  "homepage": "v1.13.0",
+  "n8n": "2.19.5",
   "vaultwarden": "1.36.0",
   "uptime-kuma": "1.23.17",
   "open-webui": "0.9.2",
-  "wikijs": "2.5.314",
+  "wikijs": "v2.5.314",
   "grafana": "11.6.1"
 }

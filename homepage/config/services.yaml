@@ -103,6 +103,11 @@
         description: Homelab Documentation
         icon: wikijs.png
         ping: http://10.0.40.102:3005
+    - Grafana:
+        href: http://10.0.40.102:3007
+        description: Metrics & visualization
+        icon: grafana.png
+        ping: http://10.0.40.102:3007
 
 - AI:
   - Open WebUI:

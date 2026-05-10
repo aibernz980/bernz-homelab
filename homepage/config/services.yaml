@@ -108,6 +108,11 @@
         description: Metrics & visualization
         icon: grafana.png
         ping: http://10.0.40.102:3007
+    - Loki:
+        href: http://10.0.40.102:3100
+        description: Log aggregation
+        icon: loki.png
+        ping: http://10.0.40.102:3100
 
 - AI:
   - Open WebUI:

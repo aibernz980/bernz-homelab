@@ -9,6 +9,6 @@
   "loki": "v3.7.1",
   "promtail": "v3.4.2",
   "prometheus": "v3.4.0",
-  "unifi-poller": "v3.1.2"
-  "node-exporter": "vv1.9.1"
+  "unifi-poller": "v3.1.2",
+  "node-exporter": "v1.9.1"
 }

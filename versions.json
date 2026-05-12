@@ -8,7 +8,7 @@
   "grafana": "11.6.1",
   "loki": "v3.7.1",
   "promtail": "v3.4.2",
-  "prometheus": "vv3.11.3",
+  "prometheus": "v3.11.3",
   "unifi-poller": "v3.1.2",
   "node-exporter": "v1.11.1"
 }

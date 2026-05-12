@@ -1,14 +1,14 @@
 {
-  "homepage": "v1.13.0",
+  "homepage": "v1.13.1",
   "n8n": "2.19.5",
   "vaultwarden": "1.36.0",
   "uptime-kuma": "1.23.17",
-  "open-webui": "v0.9.4",
+  "open-webui": "v0.9.5",
   "wikijs": "v2.5.314",
   "grafana": "11.6.1",
   "loki": "v3.7.1",
   "promtail": "v3.4.2",
-  "prometheus": "v3.4.0",
+  "prometheus": "vv3.11.3",
   "unifi-poller": "v3.1.2",
-  "node-exporter": "v1.9.1"
+  "node-exporter": "v1.11.1"
 }

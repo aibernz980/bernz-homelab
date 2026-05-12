@@ -113,6 +113,17 @@
         description: Log aggregation
         icon: loki.png
         ping: http://10.0.40.102:3100
+    - Prometheus:
+        href: http://10.0.40.102:9090
+        description: Metrics collection
+        icon: prometheus.png
+        ping: http://10.0.40.102:9090
+
+    - UniFi Poller:
+        href: http://10.0.40.102:9130
+        description: UniFi metrics exporter
+        icon: unifi.png
+        ping: http://10.0.40.102:9130
 
 - AI:
   - Open WebUI:

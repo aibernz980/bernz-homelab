@@ -73,6 +73,12 @@
               label: Status
               format: text
 
+    - Pi-hole:
+        href: http://10.0.40.105/admin
+        description: Network-wide ad blocking
+        icon: pi-hole.png
+        ping: http://10.0.40.105
+      
 - Containers:
     - Homepage:
         href: https://home.bernzhomelab.com

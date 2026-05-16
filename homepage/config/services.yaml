@@ -119,6 +119,11 @@
         description: Log aggregation
         icon: loki.png
         ping: http://10.0.40.102:3100
+    - Grafana Alloy:
+        href: http://10.0.40.102:12345
+        description: Log collection agent
+        icon: grafana.png
+        ping: http://10.0.40.102:12345
     - Prometheus:
         href: http://10.0.40.102:9090
         description: Metrics collection

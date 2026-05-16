@@ -1,15 +1,15 @@
 {
   "homepage": "v1.13.1",
-  "n8n": "2.20.6",
+  "n8n": "2.20.9",
   "vaultwarden": "1.36.0",
   "uptime-kuma": "1.23.17",
   "open-webui": "v0.9.5",
   "wikijs": "v2.5.314",
-  "grafana": "11.6.1",
-  "loki": "v3.7.1",
-  "promtail": "v3.4.2",
+  "grafana": "v13.0.1-security-01",
+  "loki": "v3.7.2",
+  "alloy": "v1.16.1",
   "prometheus": "v3.11.3",
-  "unifi-poller": "v3.1.2",
-  "node-exporter": "v1.11.1"
+  "unifi-poller": "v3.2.0",
+  "node-exporter": "v1.11.1",
   "pihole": "v6.4.2"
 }

@@ -1,0 +1,28 @@
+---
+- name: Full apt upgrade across all VMs
+  hosts: vms
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Upgrade all packages
+      apt:
+        upgrade: full
+        autoremove: yes
+        autoclean: yes
+      register: apt_result
+
+    - name: Show upgrade summary
+      debug:
+        msg: "{{ apt_result.stdout_lines | default(['No output']) }}"
+
+    - name: Check if reboot is required
+      stat:
+        path: /var/run/reboot-required
+      register: reboot_required
+
+    - name: Notify if reboot needed
+      debug:
+        msg: "WARNING — {{ inventory_hostname }} requires a reboot"
+      when: reboot_required.stat.exists

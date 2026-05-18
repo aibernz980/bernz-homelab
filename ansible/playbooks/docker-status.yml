@@ -1,0 +1,22 @@
+---
+- name: Check Docker container status across all VMs
+  hosts: vms
+  tasks:
+    - name: Get running containers
+      command: docker ps --format "table {% raw %}{{.Names}}\t{{.Status}}\t{{.Ports}}{% endraw %}"
+      register: docker_ps
+      changed_when: false
+
+    - name: Get stopped containers
+      command: docker ps -a --filter "status=exited" --format "{% raw %}{{.Names}}{% endraw %}"
+      register: docker_stopped
+      changed_when: false
+
+    - name: Show running containers
+      debug:
+        msg: "{{ docker_ps.stdout_lines }}"
+
+    - name: Warn about stopped containers
+      debug:
+        msg: "WARNING — stopped containers on {{ inventory_hostname }}: {{ docker_stopped.stdout_lines }}"
+      when: docker_stopped.stdout != ""

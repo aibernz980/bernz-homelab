@@ -1,0 +1,22 @@
+---
+- name: Rolling reboot across all VMs
+  hosts: vms
+  serial: 1
+  tasks:
+    - name: Reboot host
+      reboot:
+        msg: "Reboot initiated by Ansible"
+        reboot_timeout: 300
+        pre_reboot_delay: 5
+        post_reboot_delay: 15
+
+    - name: Verify host is back up
+      ping:
+
+    - name: Check kernel version
+      command: uname -r
+      register: kernel
+
+    - name: Show kernel version
+      debug:
+        msg: "{{ inventory_hostname }} is up — kernel {{ kernel.stdout }}"

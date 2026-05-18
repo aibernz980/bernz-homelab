@@ -11,5 +11,6 @@
   "prometheus": "v3.11.3",
   "unifi-poller": "v3.2.0",
   "node-exporter": "v1.11.1",
-  "pihole": "v6.4.2"
+  "pihole": "v6.4.2",
+  "postgres": "16.14"
 }

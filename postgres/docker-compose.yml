@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: bernz
+      POSTGRES_PASSWORD: DownTownLA2020
+      POSTGRES_DB: homelab
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres_net
+
+networks:
+  postgres_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.32.0.0/16
+
+volumes:
+  postgres_data:

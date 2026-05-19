@@ -129,12 +129,16 @@
         description: Metrics collection
         icon: prometheus.png
         ping: http://10.0.40.102:9090
-
     - UniFi Poller:
         href: http://10.0.40.102:9130
         description: UniFi metrics exporter
         icon: unifi.png
         ping: http://10.0.40.102:9130
+    - Postgres:
+        href: http://10.0.40.102:5432
+        description: PostgreSQL Database
+        icon: postgres.png
+        ping: http://10.0.40.102:5432
 
 - AI:
   - Open WebUI:

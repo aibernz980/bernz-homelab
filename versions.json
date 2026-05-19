@@ -1,6 +1,6 @@
 {
   "homepage": "v1.13.1",
-  "n8n": "2.20.9",
+  "n8n": "2.21.4",
   "vaultwarden": "1.36.0",
   "uptime-kuma": "1.23.17",
   "open-webui": "v0.9.5",
@@ -12,5 +12,5 @@
   "unifi-poller": "v3.2.0",
   "node-exporter": "v1.11.1",
   "pihole": "v6.4.2",
-  "postgres": "16.14"
+  "postgres": "16"
 }

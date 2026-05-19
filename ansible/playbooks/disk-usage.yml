@@ -1,0 +1,22 @@
+---
+- name: Disk usage report across all hosts
+  hosts: all
+  tasks:
+    - name: Get disk usage
+      command: df -h /
+      register: disk_usage
+      changed_when: false
+
+    - name: Get disk usage percentage
+      shell: df / | awk 'NR==2 {print $5}' | tr -d '%'
+      register: disk_percent
+      changed_when: false
+
+    - name: Show disk usage
+      debug:
+        msg: "{{ inventory_hostname }} ({{ ansible_host }}) — {{ disk_usage.stdout }}"
+
+    - name: Warn if disk above 80%
+      debug:
+        msg: "⚠️  WARNING — {{ inventory_hostname }} disk usage is at {{ disk_percent.stdout }}%"
+      when: disk_percent.stdout | int > 80

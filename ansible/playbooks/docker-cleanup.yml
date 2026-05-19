@@ -1,0 +1,31 @@
+---
+- name: Docker cleanup across all VMs
+  hosts: vms
+  tasks:
+    - name: Remove stopped containers
+      command: docker container prune -f
+      register: container_prune
+      changed_when: "'deleted' in container_prune.stdout"
+
+    - name: Remove unused images
+      command: docker image prune -f
+      register: image_prune
+      changed_when: "'deleted' in image_prune.stdout"
+
+    - name: Remove unused volumes
+      command: docker volume prune -f
+      register: volume_prune
+      changed_when: "'deleted' in volume_prune.stdout"
+
+    - name: Remove unused networks
+      command: docker network prune -f
+      register: network_prune
+      changed_when: "'deleted' in network_prune.stdout"
+
+    - name: Show cleanup summary
+      debug:
+        msg:
+          - "Containers: {{ container_prune.stdout }}"
+          - "Images: {{ image_prune.stdout }}"
+          - "Volumes: {{ volume_prune.stdout }}"
+          - "Networks: {{ network_prune.stdout }}"

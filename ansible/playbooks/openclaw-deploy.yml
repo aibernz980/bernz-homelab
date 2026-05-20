@@ -1,0 +1,72 @@
+---
+- name: Deploy OpenClaw on docker-host
+  hosts: docker-host
+  vars:
+    openclaw_dir: /home/bernz/openclaw
+    ollama_base_url: http://10.0.40.104:11434/v1
+    default_model: llama3.2:3b
+    telegram_bot_token: "{{ vault_telegram_bot_token }}"
+    telegram_chat_id: "{{ vault_telegram_chat_id }}"
+    gateway_token: "{{ vault_openclaw_gateway_token }}"
+
+  tasks:
+    - name: Install git (required for clone)
+      apt:
+        name: git
+        state: present
+
+    - name: Clone OpenClaw repo
+      git:
+        repo: https://github.com/openclaw/openclaw.git
+        dest: "{{ openclaw_dir }}"
+        version: main
+        force: no
+      become_user: bernz
+
+    - name: Add explicit network subnet to prevent 192.168 conflict
+      blockinfile:
+        path: "{{ openclaw_dir }}/docker-compose.yml"
+        block: |
+          networks:
+            default:
+              driver: bridge
+              ipam:
+                config:
+                  - subnet: 172.33.0.0/24
+      insertafter: EOF
+
+    - name: Deploy .env file
+      template:
+        src: "{{ playbook_dir }}/../roles/baseline/templates/openclaw-env.j2"
+        dest: "{{ openclaw_dir }}/.env"
+        owner: bernz
+        group: bernz
+        mode: '0600'
+
+    - name: Deploy openclaw.json config
+      template:
+        src: "{{ playbook_dir }}/../roles/baseline/templates/openclaw-config.j2"
+        dest: "{{ openclaw_dir }}/openclaw.json"
+        owner: bernz
+        group: bernz
+        mode: '0600'
+
+    - name: Build OpenClaw Docker image
+      command: docker build -t openclaw:local .
+      args:
+        chdir: "{{ openclaw_dir }}"
+
+    - name: Start OpenClaw
+      command: docker compose up -d
+      args:
+        chdir: "{{ openclaw_dir }}"
+      become_user: bernz
+
+    - name: Verify OpenClaw is running
+      command: docker ps --filter "name=openclaw" --format "{% raw %}{{.Names}}\t{{.Status}}{% endraw %}"
+      register: openclaw_status
+      changed_when: false
+
+    - name: Show OpenClaw status
+      debug:
+        msg: "{{ openclaw_status.stdout_lines }}"

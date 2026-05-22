@@ -147,4 +147,8 @@
       icon: ollama.png
       ping: http://10.0.40.102:3001
 
-
+  - OpenClaw:
+      href: http://10.0.40.102:18789
+      description: AI Agent Gateway
+      icon: https://avatars.githubusercontent.com/u/195623809
+      ping: http://10.0.40.102:18789

@@ -110,25 +110,25 @@
         icon: wikijs.png
         ping: http://10.0.40.102:3005
     - Grafana:
-        href: http://10.0.40.102:3007
+        href: http://10.0.40.106:3007
         description: Metrics & visualization
         icon: grafana.png
-        ping: http://10.0.40.102:3007
+        ping: http://10.0.40.106:3007
     - Loki:
-        href: http://10.0.40.102:3100
+        href: http://10.0.40.106:3100
         description: Log aggregation
         icon: loki.png
-        ping: http://10.0.40.102:3100
+        ping: http://10.0.40.106:3100
     - Grafana Alloy:
         href: http://10.0.40.102:12345
         description: Log collection agent
         icon: grafana.png
         ping: http://10.0.40.102:12345
     - Prometheus:
-        href: http://10.0.40.102:9090
+        href: http://10.0.40.106:9090
         description: Metrics collection
         icon: prometheus.png
-        ping: http://10.0.40.102:9090
+        ping: http://10.0.40.106:9090
     - UniFi Poller:
         href: http://10.0.40.102:9130
         description: UniFi metrics exporter
@@ -139,6 +139,11 @@
         description: PostgreSQL Database
         icon: postgres.png
         ping: http://10.0.40.102:5432
+    - Adminer:
+        href: http://10.0.40.102:8083
+        description: PsotgreSQL GUI
+        icon: adminer.png
+        ping: http://10.0.40.102:8083
 
 - AI:
   - Open WebUI:

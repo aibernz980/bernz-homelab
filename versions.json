@@ -1,11 +1,11 @@
 {
   "homepage": "v1.13.1",
-  "n8n": "2.21.7",
+  "n8n": "2.22.5",
   "vaultwarden": "1.36.0",
   "uptime-kuma": "1.23.17",
   "open-webui": "v0.9.5",
   "wikijs": "v2.5.314",
-  "grafana": "v13.0.1-security-01",
+  "grafana": "13.0.1-security-01",
   "loki": "v3.7.2",
   "alloy": "v1.16.1",
   "prometheus": "v3.11.3",
@@ -13,5 +13,5 @@
   "node-exporter": "v1.11.1",
   "pihole": "v6.4.2",
   "postgres": "16",
-  "openclaw": "v2026.5.7"
+  "openclaw": "v2026.5.20"
 }
